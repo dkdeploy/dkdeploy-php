@@ -42,3 +42,18 @@ Feature: Test tasks for namespace 'php'
 		And I extend the development capistrano configuration from the fixture file server_with_faulty_domain_configuration.rb
 		When I run `cap dev php:clear_opcache`
 		Then the exit status should not be 0
+
+	Scenario: Clear APC via HTTPS
+		Given a directory named "temp"
+		And I extend the development capistrano configuration from the fixture file server_with_ssl.rb
+	    And I inject the root SSL certificate
+		When I run `cap dev php:clear_apc_cache`
+		Then the exit status should be 0
+		And the output should contain "200 - OK"
+
+	Scenario: Clear APC via HTTPS and failing SSL certificate
+		Given a directory named "temp"
+		And I extend the development capistrano configuration from the fixture file server_with_ssl.rb
+		When I run `cap dev php:clear_apc_cache`
+		Then the exit status should not be 0
+		And the output should contain "certificate verify failed"
