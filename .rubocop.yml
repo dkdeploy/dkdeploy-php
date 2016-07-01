@@ -2,8 +2,9 @@ AllCops:
   Exclude:
     - 'tmp/**/*'
     - 'spec/fixtures/application/htdocs/stylesheets/**/config.rb'
-    - 'Vagrantfile'
     - 'config/**/*'
+    - 'Vagrantfile'
+    - 'vendor/**/*'
 GlobalVars:
   AllowedVariables: []
 MethodLength:
