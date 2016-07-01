@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+gem 'dkdeploy-php', path: '../../'
+
+# Gem for task "assets:compile_compass"
+gem 'compass', '~> 0.12.0'

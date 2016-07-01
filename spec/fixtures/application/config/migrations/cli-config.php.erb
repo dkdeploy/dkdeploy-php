@@ -1,0 +1,23 @@
+<?php
+<% db_settings = read_db_settings_for_context(self) %>
+$connection = \Doctrine\DBAL\DriverManager::getConnection(
+	array(
+		'dbname' => '<%= db_settings.fetch('name') %>',
+		'user' => '<%= db_settings.fetch('username') %>',
+		'password' => '<%= db_settings.fetch('password') %>',
+		'host' => '<%= db_settings.fetch('host') %>',
+		'port' => '<%= db_settings.fetch('port') %>',
+		'charset' => '<%= db_settings.fetch('charset') %>',
+		'driver' => 'pdo_mysql'
+	)
+);
+$connection->getDatabasePlatform()->registerDoctrineTypeMapping('mediumblob', 'string');
+$connection->getDatabasePlatform()->registerDoctrineTypeMapping('tinyblob', 'string');
+$connection->getDatabasePlatform()->registerDoctrineTypeMapping('longblob', 'string');
+$connection->getDatabasePlatform()->registerDoctrineTypeMapping('blob', 'string');
+
+$helperSet = new \Symfony\Component\Console\Helper\HelperSet(
+	array(
+		'db' => new \Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper($connection)
+	)
+);

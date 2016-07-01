@@ -1,0 +1,22 @@
+{
+    "name": "dkdeploy/example",
+    "description": "Just a sample composer.json",
+    "type": "library",
+    "keywords": [
+        "phpunit",
+        "xunit",
+        "testing"
+    ],
+    "homepage": "https://dkd.de/",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Random Coder",
+            "email": "mail@example.com",
+            "role": "lead"
+        }
+    ],
+    "require": {
+        "symfony/yaml": "~2.0"
+    }
+}
