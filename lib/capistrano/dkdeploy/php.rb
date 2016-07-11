@@ -21,5 +21,9 @@ namespace :load do
 
     set :remote_opcache_file_name, 'opcache_reset.php'
     set :local_opcache_file, File.join(__dir__, '..', '..', '..', 'vendor', 'opcache_reset.php')
+
+    # timeouts for Net::HTTP
+    set :http_open_timeout, nil
+    set :http_read_timeout, 60
   end
 end
