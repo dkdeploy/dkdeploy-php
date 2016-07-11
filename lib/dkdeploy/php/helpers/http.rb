@@ -37,8 +37,8 @@ module Dkdeploy
           raise 'too many HTTP redirects' if limit.zero?
           # configure Net::HTTP
           http = Net::HTTP.new(url.host, url.port)
-          http.open_timeout = fetch :http_open_timeout, nil
-          http.read_timeout = fetch :http_read_timeout, 60
+          http.open_timeout = fetch :http_open_timeout
+          http.read_timeout = fetch :http_read_timeout
           if url.scheme == 'https'
             http.use_ssl = true
             http.verify_mode = OpenSSL::SSL::VERIFY_NONE
