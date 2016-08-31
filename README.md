@@ -1,3 +1,5 @@
+![dkdeploy::php](assets/dkdeploy-logo.png)
+
 # Dkdeploy::Php
 
 [![Build Status](https://api.travis-ci.org/dkdeploy/dkdeploy-php.svg?branch=develop)](https://travis-ci.org/repositories/dkdeploy/dkdeploy-php)
