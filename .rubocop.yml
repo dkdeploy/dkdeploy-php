@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.2
   Exclude:
     - 'tmp/**/*'
     - 'spec/fixtures/application/htdocs/stylesheets/**/config.rb'

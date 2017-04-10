@@ -56,16 +56,22 @@ end
 # Apache
 include_recipe 'apache2'
 include_recipe 'apache2::mod_php5'
+include_recipe 'apache2::mod_ssl'
 
 # install apache2-utils. It is needed for the assets:add_htpasswd task
 package 'apache2-utils' do
   action :install
 end
 
+ssl_key_path = '/var/www/dkdeploy.key'
+ssl_cert_path = '/var/www/dkdeploy.pem'
+
 web_app 'dkdeploy-php.dev' do
   server_name 'dkdeploy-php.dev'
   server_aliases ['second-dkdeploy-php.dev']
   docroot '/var/www/dkdeploy/current/'
+  key_path ssl_key_path
+  cert_path ssl_cert_path
   template 'web_app.conf.erb'
 end
 
@@ -74,4 +80,14 @@ directory '/var/www/' do
   group 'www-data' # apache2 is executed by www-data and needs access to directory
   mode '0770'
   action :create
+end
+
+ssl_certificate 'dkdeploy-php.dev' do
+  key_path ssl_key_path
+  key_mode 00755
+  cert_path ssl_cert_path
+  domain 'dkdeploy-php.dev'
+  organization 'dkdeploy'
+  email 'offical@example.com'
+  notifies :restart, 'service[apache2]'
 end
