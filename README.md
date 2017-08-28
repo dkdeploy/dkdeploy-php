@@ -2,7 +2,7 @@
 
 # Dkdeploy::Php
 
-[![Build Status](https://api.travis-ci.org/dkdeploy/dkdeploy-php.svg?branch=develop)](https://travis-ci.org/repositories/dkdeploy/dkdeploy-php)
+[![Build Status](https://travis-ci.org/dkdeploy/dkdeploy-php.svg?branch=develop)](https://travis-ci.org/dkdeploy/dkdeploy-php)
 [![Gem Version](https://badge.fury.io/rb/dkdeploy-php.svg)](https://badge.fury.io/rb/dkdeploy-php) [![Inline docs](http://inch-ci.org/github/dkdeploy/dkdeploy-php.svg?branch=develop)](http://inch-ci.org/github/dkdeploy/dkdeploy-php)
 
 ## Description
