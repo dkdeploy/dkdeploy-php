@@ -43,7 +43,6 @@ namespace :php do
           error I18n.t('tasks.php.clear_apc_cache.response_not_success', code: response.code, message: response.message, scope: :dkdeploy)
           raise
         end
-
       ensure
         # Delete file, if uploaded before
         execute(:rm, '-f', remote_apc_file) if delete_apc_file
@@ -80,7 +79,6 @@ namespace :php do
           error I18n.t('tasks.php.clear_opcache.response_not_success', code: response.code, message: response.message, scope: :dkdeploy)
           raise
         end
-
       ensure
         # Delete file, if uploaded before
         execute(:rm, '-f', remote_opcache_file) if delete_opcache_file

@@ -22,3 +22,5 @@ Metrics/AbcSize:
   Max: 30
 Style/SignalException:
   EnforcedStyle: only_raise
+Metrics/BlockLength:
+  Enabled: false
