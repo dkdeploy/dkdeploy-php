@@ -1,5 +1,5 @@
 set :deploy_to, '/var/www/dkdeploy'
-server 'dkdeploy-php.dev', roles: %w(web app backend), primary: true
+server 'dkdeploy-php.dev', roles: %w[web app backend], primary: true
 
 # no ssh compression on the dev stage
 set :ssh_options, {
@@ -18,11 +18,11 @@ unless ssh_key_files.empty?
 end
 
 set :copy_source, 'htdocs'
-set :copy_exclude, %w(
+set :copy_exclude, %w[
   Gemfile*
   .hidden
   **/.hidden
-)
+]
 
 # Set http open timeout to 1 second
 set :http_open_timeout, 60

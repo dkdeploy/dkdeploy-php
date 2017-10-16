@@ -6,6 +6,9 @@ AllCops:
     - 'config/**/*'
     - 'Vagrantfile'
     - 'vendor/**/*'
+  ExtraDetails: true
+  DisplayStyleGuide: true
+  DisplayCopNames: true
 GlobalVars:
   AllowedVariables: []
 MethodLength:
@@ -22,3 +25,7 @@ Metrics/AbcSize:
   Max: 30
 Style/SignalException:
   EnforcedStyle: only_raise
+Style/FormatStringToken:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false

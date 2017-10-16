@@ -11,6 +11,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - `Dkdeploy::Php::Helpers::Http::http_get_with_redirect` gets arguments as options hash now
+- Vagrant 2.0.x support
+- rubocop upgrade to 0.50
+- ruby upgrade to 2.2
+- bundler upgrade
+- rake upgrade
+- dkdeploy-test_environment upgrade to 2.0
+- dkdeploy-core upgrade 9.0
+- Add dependencies for cucumber, rubocop, aruba and mysql2
 
 ### Fixed
 
