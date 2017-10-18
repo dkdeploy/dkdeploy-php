@@ -13,7 +13,7 @@ This Rubygem `dkdeploy-php` ruby gem represents the extension of [Capistrano](ht
 
 Add this line to your application's `Gemfile`
 
-	gem 'dkdeploy-php', '~> 7.0'
+	gem 'dkdeploy-php', '~> 8.0'
 
 and then execute
 
