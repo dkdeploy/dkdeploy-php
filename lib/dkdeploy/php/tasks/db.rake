@@ -18,7 +18,7 @@ namespace :db do
     end
 
     desc 'Show migration status'
-    task status: [:copy_doctrine_to_server, :copy_migrations_to_server] do
+    task status: %i[copy_doctrine_to_server copy_migrations_to_server] do
       run_locally do
         info I18n.t('tasks.db.migrations.status.info', scope: :dkdeploy)
       end
@@ -30,7 +30,7 @@ namespace :db do
     end
 
     desc 'Migrate Database'
-    task migrate: [:copy_doctrine_to_server, :copy_migrations_to_server] do
+    task migrate: %i[copy_doctrine_to_server copy_migrations_to_server] do
       run_locally do
         info I18n.t('tasks.db.migrations.migrate.info', scope: :dkdeploy)
       end

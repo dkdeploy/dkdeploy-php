@@ -5,17 +5,10 @@ unless Vagrant.has_plugin?('vagrant-berkshelf')
   abort
 end
 
-unless Vagrant.has_plugin?('vagrant-omnibus')
-  puts "Please install vagrant plugin vagrant-omnibus first\n"
-  puts " vagrant plugin install vagrant-omnibus\n\n"
-  puts "Exit vagrant\n\n"
-  abort
-end
-
-Vagrant.require_version '>= 1.8.1'
+Vagrant.require_version '~> 2.0.0'
 chef_version = '12.9.41'
 
-Vagrant.configure('2') do |config|
+Vagrant.configure(2) do |config|
   domain = 'dkdeploy-php.dev'
   domain_second = 'second-dkdeploy-php.dev'
   ip_address = '192.168.156.181'
@@ -23,7 +16,6 @@ Vagrant.configure('2') do |config|
   config.vm.box = 'ubuntu/trusty64'
   config.vm.box_check_update = false
   config.berkshelf.enabled = true
-  config.omnibus.chef_version = chef_version
 
   config.vm.define('dkdeploy-php', primary: true) do |master_config|
     master_config.vm.network 'private_network', ip: ip_address
@@ -31,7 +23,8 @@ Vagrant.configure('2') do |config|
     # Chef settings
     master_config.vm.provision :chef_solo do |chef|
       chef.version = chef_version
-      chef.install = false # omnibus does it already
+      chef.install = true
+      chef.channel = 'stable'
       chef.log_level = :info
       chef.add_recipe 'dkdeploy-php'
       chef.json = {}

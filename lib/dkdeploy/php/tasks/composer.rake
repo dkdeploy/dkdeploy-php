@@ -24,7 +24,7 @@ namespace :composer do
       begin
         # run composer status
         invoke 'composer:local:run', :status
-      rescue
+      rescue SSHKit::StandardError
         run_locally do
           command = SSHKit::Command.new :composer, :status, '-v', *default_arguments
           error I18n.t('tasks.composer.local.check_status.failure', command: command.to_s, scope: :dkdeploy)
