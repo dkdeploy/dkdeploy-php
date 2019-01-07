@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dkdeploy
   module Php
     # Class for version number

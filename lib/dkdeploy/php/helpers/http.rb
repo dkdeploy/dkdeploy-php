@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'socket'
 require 'net/http'
 
@@ -37,6 +39,7 @@ module Dkdeploy
           limit = Integer(limit)
           raise ArgumentError, 'limit cannot be negative' if limit < 0
           raise 'too many HTTP redirects' if limit.zero?
+
           # configure Net::HTTP
           http = Net::HTTP.new(url.host, url.port)
           http.open_timeout = fetch :http_open_timeout

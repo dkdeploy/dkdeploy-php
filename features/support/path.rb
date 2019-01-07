@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Navigation helper module for cucumber steps
 #
 module NavigationHelpers

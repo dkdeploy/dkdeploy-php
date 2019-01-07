@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dkdeploy/helpers/common'
 require 'capistrano/i18n'
 require 'dkdeploy/php/i18n'

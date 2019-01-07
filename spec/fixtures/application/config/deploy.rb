@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 set :application, 'test_app'
 set :composer_default_arguments, fetch(:composer_default_arguments) + ['-d=htdocs/']
 SSHKit.config.command_map.prefix[:compass].push 'bundle exec'

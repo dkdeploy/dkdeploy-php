@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'socket'
 require 'net/http'
 require 'uri'
@@ -36,9 +38,7 @@ namespace :php do
         info I18n.t('tasks.php.clear_apc_cache.result_msg', code: response.code, message: response.message, scope: :dkdeploy)
         if response.is_a? Net::HTTPSuccess
           result = JSON.parse response.body
-          unless result['success']
-            warn I18n.t('tasks.php.clear_apc_cache.cache_not_cleared', scope: :dkdeploy)
-          end
+          warn I18n.t('tasks.php.clear_apc_cache.cache_not_cleared', scope: :dkdeploy) unless result['success']
         else
           error I18n.t('tasks.php.clear_apc_cache.response_not_success', code: response.code, message: response.message, scope: :dkdeploy)
           raise
@@ -72,9 +72,7 @@ namespace :php do
         info I18n.t('tasks.php.clear_opcache.result_msg', code: response.code, message: response.message, scope: :dkdeploy)
         if response.is_a? Net::HTTPSuccess
           result = JSON.parse response.body
-          unless result['success']
-            warn I18n.t('tasks.php.clear_opcache.cache_not_cleared', scope: :dkdeploy)
-          end
+          warn I18n.t('tasks.php.clear_opcache.cache_not_cleared', scope: :dkdeploy) unless result['success']
         else
           error I18n.t('tasks.php.clear_opcache.response_not_success', code: response.code, message: response.message, scope: :dkdeploy)
           raise

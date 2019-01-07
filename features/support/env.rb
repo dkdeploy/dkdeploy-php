@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dkdeploy/test_environment/application'
 ssh_config = {}
 
@@ -10,5 +12,5 @@ unless ssh_key_files.empty?
   }
 end
 
-TEST_APPLICATION = Dkdeploy::TestEnvironment::Application.new(File.expand_path('../../../', __FILE__), 'dkdeploy-php.dev', ssh_config)
+TEST_APPLICATION = Dkdeploy::TestEnvironment::Application.new(File.expand_path('../..', __dir__), 'dkdeploy-php.dev', ssh_config)
 TEST_APPLICATION.mysql_connection_settings = { host: 'dkdeploy-php.dev', username: 'root', password: 'ilikerandompasswords' }

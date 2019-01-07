@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'erb'
 require 'ostruct'
 
@@ -10,7 +12,7 @@ Given(/^an empty doctrine migration with name "([^"]*)"$/) do |file_path|
   def context_object.binding_for_erb
     binding
   end
-  empty_doctrine_migration_template_path = File.expand_path('../../templates/empty-doctrine-migration.erb', __FILE__)
+  empty_doctrine_migration_template_path = File.expand_path('../templates/empty-doctrine-migration.erb', __dir__)
   empty_doctrine_migration_template = ERB.new File.read(empty_doctrine_migration_template_path)
   write_file file_path, empty_doctrine_migration_template.result(context_object.binding_for_erb)
 end

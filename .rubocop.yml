@@ -5,7 +5,7 @@ AllCops:
     - 'config/**/*'
     - 'Vagrantfile'
     - 'vendor/**/*'
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.3
   ExtraDetails: true
   DisplayStyleGuide: true
   DisplayCopNames: true
@@ -28,4 +28,8 @@ Style/SignalException:
 Style/FormatStringToken:
   Enabled: false
 Metrics/BlockLength:
+  Enabled: false
+Style/MixinUsage:
+  Enabled: false
+Style/NumericPredicate:
   Enabled: false

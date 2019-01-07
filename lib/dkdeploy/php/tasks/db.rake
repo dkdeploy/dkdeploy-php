@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'erb'
 require 'dkdeploy/php/helpers/db'
 include Dkdeploy::Php::Helpers::DB
@@ -99,9 +101,7 @@ namespace :db do
         execute :rm, '-rf', remote_migrations_classes_directory
 
         # Copy common migrations to server
-        if Dir.exist? local_migrations_classes_directory
-          upload! local_migrations_classes_directory, remote_migrations_root_directory, via: :scp, recursive: true
-        end
+        upload! local_migrations_classes_directory, remote_migrations_root_directory, via: :scp, recursive: true if Dir.exist? local_migrations_classes_directory
 
         # Copy stage specific migrations
         if Dir.exist? File.join(local_migrations_stage_directory, fetch(:stage).to_s)

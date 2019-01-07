@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'capistrano/dkdeploy/core'
 
 include Capistrano::DSL
 
 # Load dkdeploy tasks
-load File.expand_path('../../../dkdeploy/php/tasks/php.rake', __FILE__)
-load File.expand_path('../../../dkdeploy/php/tasks/composer.rake', __FILE__)
-load File.expand_path('../../../dkdeploy/php/tasks/db.rake', __FILE__)
+load File.expand_path('../../dkdeploy/php/tasks/php.rake', __dir__)
+load File.expand_path('../../dkdeploy/php/tasks/composer.rake', __dir__)
+load File.expand_path('../../dkdeploy/php/tasks/db.rake', __dir__)
 
 namespace :load do
   task :defaults do
